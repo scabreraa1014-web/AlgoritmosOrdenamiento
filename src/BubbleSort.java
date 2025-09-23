@@ -2,18 +2,25 @@ import java.util.Scanner;
 
 public class BubbleSort {
 
-    // Algoritmo Bubble Sort con impresión paso a paso
+    /**
+     *
+     * @param a
+     */
     public static void sort(Comparable[] a) {
         int n = a.length;
         for (int i = 0; i < n - 1; i++) {
+            System.out.println(">>> Pasada " + (i + 1));
             for (int j = 0; j < n - i - 1; j++) {
                 if (less(a[j + 1], a[j])) {
                     exch(a, j, j + 1);
+                    System.out.print("Intercambio en posición " + j + ": ");
+                    show(a);
                 }
             }
-            // Mostrar estado del arreglo después de cada pasada
-            System.out.print("Iteración " + (i + 1) + ": ");
+          
+            System.out.print("Estado después de pasada " + (i + 1) + ": ");
             show(a);
+            System.out.println("----------------------------------");
         }
         assert isSorted(a);
     }
